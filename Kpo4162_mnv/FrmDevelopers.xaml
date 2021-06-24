@@ -1,0 +1,89 @@
+﻿<Window x:Class="Kpo4162_mnv.Main.FrmDevelopers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kpo4162_mnv.Main"
+        mc:Ignorable="d"
+        Title="Производитель"
+        Height="300"
+        Width="400"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label 
+                Content="Наименование"
+                FontSize="14"
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                x:Name="Name"
+                Grid.Row="0"
+                Grid.Column="1"
+                FontSize="14"
+                VerticalAlignment="Center"/>
+            <Label 
+                Content="Продуктов"
+                FontSize="14"
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                x:Name="ProductCount"
+                Grid.Row="1"
+                Grid.Column="1"
+                FontSize="14"
+                VerticalAlignment="Center"/>
+            <Label 
+                Content="Годовая выручка"
+                FontSize="14"
+                Grid.Row="2"
+                Grid.Column="0"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                x:Name="Proceeds"
+                Grid.Row="2"
+                Grid.Column="1"
+                FontSize="14"
+                VerticalAlignment="Center"/>
+            <Label 
+                Content="Доля рынка"
+                FontSize="14"
+                Grid.Row="3"
+                Grid.Column="0"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                x:Name="MarketPercentage"
+                Grid.Row="3"
+                Grid.Column="1"
+                FontSize="14"
+                VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>

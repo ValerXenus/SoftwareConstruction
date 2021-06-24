@@ -1,0 +1,76 @@
+﻿<Window x:Class="Kpo4162_mnv.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kpo4162_mnv"
+        mc:Ignorable="d"
+        Title="КПО:4162:Вдовичев"
+        Height="450"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Menu 
+            DockPanel.Dock="Top"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="0">
+            <MenuItem 
+                Header="Файл"
+                x:Name="mmFile">
+                <MenuItem 
+                    Header="Открыть"
+                    x:Name="mnOpen"
+                    Click="MnOpen_OnClick"/>
+                <MenuItem 
+                    Header="Выход"
+                    x:Name="mnExit"
+                    Click="MnExit_OnClick"/>
+            </MenuItem>
+            <MenuItem 
+                Header="Производители"
+                x:Name="mmDevelopers">
+                <MenuItem 
+                    Header="Открыть производителя"
+                    x:Name="mnOpenDeveloper"
+                    Click="MnOpenDeveloper_OnClick"/>
+            </MenuItem>
+        </Menu>
+        
+        <DataGrid
+            Grid.Row="2"
+            Grid.Column="1"
+            x:Name="dvgMyClasses"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Продуктов" Binding="{Binding ProductCount}" Width="*"/>
+                <DataGridTextColumn Header="Годовая выручка" Binding="{Binding Proceeds}" Width="*"/>
+                <DataGridTextColumn Header="Доля рынка" Binding="{Binding MarketPercentage}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StatusBar 
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <StatusBarItem
+                x:Name="SStatus">
+                
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
