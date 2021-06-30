@@ -1,0 +1,17 @@
+<DevelopersList>
+	<Developer Name="Oracle">
+		<ProductCount>1</ProductCount>
+		<Proceeds>2488000000</Proceeds>
+		<MarketPercentage>31,1</MarketPercentage>
+	</Developer>
+	<Developer Name="IBM">
+		<ProductCount>3</ProductCount>
+		<Proceeds>2392000000</Proceeds>
+		<MarketPercentage>29,9</MarketPercentage>
+	</Developer>
+	<Developer Name="Microsoft">
+		<ProductCount>2</ProductCount>
+		<Proceeds>1048000001</Proceeds>
+		<MarketPercentage>13,1</MarketPercentage>
+	</Developer>
+</DevelopersList>

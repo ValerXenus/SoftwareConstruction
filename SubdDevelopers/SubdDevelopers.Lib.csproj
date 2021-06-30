@@ -54,11 +54,12 @@
     <Compile Include="source\Common\AppGlobalSettings.cs" />
     <Compile Include="source\Common\CommonDelegates.cs" />
     <Compile Include="source\Common\ILoadDevelopersList.cs" />
-    <Compile Include="source\Common\Ioc.cs" />
+    <Compile Include="source\Common\IoС.cs" />
     <Compile Include="source\Common\ISaveDevelopersList.cs" />
     <Compile Include="source\Common\ListDevelopersSplitFileLoader.cs" />
     <Compile Include="source\Common\ListDevelopersSplitFileSaver.cs" />
     <Compile Include="source\Common\LoadStatus.cs" />
+    <Compile Include="source\Common\SerializerXmlClient.cs" />
     <Compile Include="source\Developer.cs" />
     <Compile Include="source\mock\ListDevelopersLoadMock.cs" />
     <Compile Include="source\mock\ListDevelopersSaveMock.cs" />

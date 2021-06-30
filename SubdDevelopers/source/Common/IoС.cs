@@ -8,13 +8,13 @@ namespace SubdDevelopers.source.Common
     /// <summary>
     /// Класс реализации IoC
     /// </summary>
-    public static class Ioc
+    public static class IoС
     {
         private static WindsorContainer _container;
 
         public static WindsorContainer Container => _container;
 
-        static Ioc()
+        static IoС()
         {
             _container = new WindsorContainer();
 

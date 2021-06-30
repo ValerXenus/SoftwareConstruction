@@ -32,7 +32,7 @@ namespace Kpo4162_mnv
         {
             try
             {
-                ILoadDevelopersList developersLoader = Ioc.Container.Resolve<ILoadDevelopersList>("prodLoader");
+                ILoadDevelopersList developersLoader = IoС.Container.Resolve<ILoadDevelopersList>("prodLoader");
                 developersLoader.SetProgressReporter(reportProgress);
                 developersLoader.Execute();
                 var developers = developersLoader.DeveloperList;
@@ -79,7 +79,7 @@ namespace Kpo4162_mnv
                     select item as Developer)
                 .ToList();
 
-            ISaveDevelopersList developersSaver = Ioc.Container.Resolve<ISaveDevelopersList>("prodSaver");
+            ISaveDevelopersList developersSaver = IoС.Container.Resolve<ISaveDevelopersList>("prodSaver");
             developersSaver.DeveloperList = developerList;
             developersSaver.SetProgressReporter(reportProgress);
             developersSaver.Execute();

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kpo4162_nmv.Lib", "..\Kpo41
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubdDevelopers.Lib", "..\SubdDevelopers\SubdDevelopers.Lib.csproj", "{D37AF2E6-EF6B-4FBE-8545-A23F6A8C9E47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubdDevelopers.Tests", "..\SubdDevelopers.Tests\SubdDevelopers.Tests.csproj", "{96744595-B3CE-48A5-BBE5-B3D7E9D2925B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D37AF2E6-EF6B-4FBE-8545-A23F6A8C9E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D37AF2E6-EF6B-4FBE-8545-A23F6A8C9E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D37AF2E6-EF6B-4FBE-8545-A23F6A8C9E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96744595-B3CE-48A5-BBE5-B3D7E9D2925B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96744595-B3CE-48A5-BBE5-B3D7E9D2925B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96744595-B3CE-48A5-BBE5-B3D7E9D2925B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96744595-B3CE-48A5-BBE5-B3D7E9D2925B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
