@@ -25,10 +25,26 @@ namespace SubdDevelopers.Tests
             resultXml.LoadXml(serializedXml);
 
             // Проверка xml с валидным
-            var validChilds = validXml.ChildNodes;
-            var resultChilds = resultXml.ChildNodes;
+            var validRootNode = validXml.SelectSingleNode("DevelopersList");
+            var resultRootNode = resultXml.SelectSingleNode("DevelopersList");
 
-            Assert.Equal(validChilds.Count, resultChilds.Count);
+            Assert.NotNull(validRootNode);
+            Assert.NotNull(resultRootNode);
+
+            var validChildren = validRootNode.ChildNodes;
+            var resultChildren = resultRootNode.ChildNodes;
+
+            Assert.Equal(validChildren.Count, resultChildren.Count);
+
+            for (var i = 0; i < validChildren.Count; i++)
+            {
+                var validChildElements = validChildren[i].ChildNodes;
+                var resultChildElements = resultChildren[i].ChildNodes;
+                
+                Assert.Equal(validChildElements[0].InnerText, resultChildElements[0].InnerText);
+                Assert.Equal(validChildElements[1].InnerText, resultChildElements[1].InnerText);
+                Assert.Equal(validChildElements[2].InnerText, resultChildElements[2].InnerText);
+            }
         }
 
         private void reportProgress(int progressValue)
