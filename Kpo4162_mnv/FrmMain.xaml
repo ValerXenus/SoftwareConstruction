@@ -36,6 +36,10 @@
                     x:Name="mnOpen"
                     Click="MnOpen_OnClick"/>
                 <MenuItem 
+                    Header="Сохранить"
+                    x:Name="mnSave"
+                    Click="MnSave_OnClick"/>
+                <MenuItem 
                     Header="Выход"
                     x:Name="mnExit"
                     Click="MnExit_OnClick"/>

@@ -1,15 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using SubdDevelopers.Common;
 using SubdDevelopers.source.Common;
 
 namespace SubdDevelopers.source.mock
 {
-    public class ListDevelopersLoadMock : ILoadDevelopersList
+    public class ListDevelopersSaveMock : ISaveDevelopersList
     {
         private List<Developer> _developers = null;
 
-        public List<Developer> DeveloperList => _developers;
+        public List<Developer> DeveloperList
+        {
+            get => _developers;
 
-        public ListDevelopersLoadMock()
+            set
+            {
+                if (_developers.Equals(value))
+                    return;
+
+                _developers = value;
+            }
+        }
+
+        public ListDevelopersSaveMock()
         {
             _developers = new List<Developer>();
         }
@@ -39,6 +53,20 @@ namespace SubdDevelopers.source.mock
                 Proceeds = 1048000000,
                 MarketPercentage = 13.1d
             });
+
+            saveDevelopersToFile();
+        }
+
+        private void saveDevelopersToFile()
+        {
+            var fileText = _developers.Aggregate(string.Empty,
+                (current, developer) =>
+                    current + $"{developer.Name}|{developer.ProductCount}|{developer.Proceeds}|{developer.MarketPercentage}\n");
+
+            using (var writer = new StreamWriter(AppGlobalSettings.DataFileName))
+            {
+                writer.Write(fileText);
+            }
         }
     }
 }
