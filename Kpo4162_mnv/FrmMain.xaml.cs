@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using Castle.MicroKernel;
 using Kpo4162_mnv.Main;
 using Kpo4162_nmv.Lib;
 using SubdDevelopers.Common;
@@ -32,8 +33,7 @@ namespace Kpo4162_mnv
         {
             try
             {
-                IDeveloperFactory developersFactory = new DevelopersSplitFileFactory();
-                var developersLoader = developersFactory.CreateLoadDevelopersList();
+                ILoadDevelopersList developersLoader = Ioc.Container.Resolve<ILoadDevelopersList>("prodLoader");
                 developersLoader.Execute();
                 var developers = developersLoader.DeveloperList;
 
@@ -79,10 +79,9 @@ namespace Kpo4162_mnv
                     select item as Developer)
                 .ToList();
 
-            IDeveloperFactory factory = new DevelopersSplitFileFactory();
-            var listSaver = factory.CreateSaveDevelopersList();
-            listSaver.DeveloperList = developerList;
-            listSaver.Execute();
+            ISaveDevelopersList developersSaver = Ioc.Container.Resolve<ISaveDevelopersList>("prodSaver");
+            developersSaver.DeveloperList = developerList;
+            developersSaver.Execute();
         }
     }
 }

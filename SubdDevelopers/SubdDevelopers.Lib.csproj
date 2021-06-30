@@ -31,9 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\Kpo4162_mnv\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\Kpo4162_mnv\packages\Castle.Windsor.5.1.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,10 +52,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source\Common\AppGlobalSettings.cs" />
-    <Compile Include="source\Common\DevelopersSplitFileFactory.cs" />
-    <Compile Include="source\Common\DevelopersTestFactory.cs" />
-    <Compile Include="source\Common\IDeveloperFactory.cs" />
     <Compile Include="source\Common\ILoadDevelopersList.cs" />
+    <Compile Include="source\Common\Ioc.cs" />
     <Compile Include="source\Common\ISaveDevelopersList.cs" />
     <Compile Include="source\Common\ListDevelopersSplitFileLoader.cs" />
     <Compile Include="source\Common\ListDevelopersSplitFileSaver.cs" />
@@ -62,6 +68,9 @@
       <Project>{2eb7c0f4-70cd-4b60-8cf5-28f8aa7dabdc}</Project>
       <Name>Kpo4162_nmv.Lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
