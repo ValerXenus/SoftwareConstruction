@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using Castle.MicroKernel;
 using Kpo4162_mnv.Main;
 using Kpo4162_nmv.Lib;
 using SubdDevelopers.Common;
@@ -34,6 +33,7 @@ namespace Kpo4162_mnv
             try
             {
                 ILoadDevelopersList developersLoader = Ioc.Container.Resolve<ILoadDevelopersList>("prodLoader");
+                developersLoader.SetProgressReporter(reportProgress);
                 developersLoader.Execute();
                 var developers = developersLoader.DeveloperList;
 
@@ -81,7 +81,17 @@ namespace Kpo4162_mnv
 
             ISaveDevelopersList developersSaver = Ioc.Container.Resolve<ISaveDevelopersList>("prodSaver");
             developersSaver.DeveloperList = developerList;
+            developersSaver.SetProgressReporter(reportProgress);
             developersSaver.Execute();
+        }
+
+        /// <summary>
+        /// Изменение значения в ProgressBar
+        /// </summary>
+        /// <param name="progressValue"></param>
+        private void reportProgress(int progressValue)
+        {
+            ProcessProgress.Value = progressValue;
         }
     }
 }

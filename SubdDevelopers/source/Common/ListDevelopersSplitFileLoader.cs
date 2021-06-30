@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using Kpo4162_nmv.Lib;
 using SubdDevelopers.Common;
+using SubdDevelopers.source.Utility;
 
 namespace SubdDevelopers.source.Common
 {
     public class ListDevelopersSplitFileLoader : ILoadDevelopersList
     {
         private List<Developer> _developerList = null;
+
+        private ReportProgress _reportProgress = null;
 
         private LoadStatus _loadStatus;
 
@@ -19,6 +22,11 @@ namespace SubdDevelopers.source.Common
         public ListDevelopersSplitFileLoader(string dataFileName)
         {
             _dataFileName = dataFileName;
+        }
+
+        public void SetProgressReporter(ReportProgress reportProgress)
+        {
+            _reportProgress = reportProgress;
         }
 
         public void Execute()
@@ -38,6 +46,10 @@ namespace SubdDevelopers.source.Common
             }
 
             _developerList = new List<Developer>();
+
+            var rowsCount = getRowsCount(_dataFileName);
+            int currentCount = 1;
+
             using (var reader = new StreamReader(_dataFileName))
             {
                 while (!reader.EndOfStream)
@@ -55,6 +67,10 @@ namespace SubdDevelopers.source.Common
                         currentDeveloper.MarketPercentage = double.Parse(parts[3]);
 
                         _developerList.Add(currentDeveloper);
+                        currentCount++;
+
+                        var progressValue = CalculationsUtility.CalculateProgress(currentCount, rowsCount);
+                        _reportProgress(progressValue);
                     }
                     catch (Exception exception)
                     {
@@ -65,6 +81,13 @@ namespace SubdDevelopers.source.Common
             }
 
             _loadStatus = LoadStatus.Success;
+        }
+
+        private int getRowsCount(string dataFileName)
+        {
+            var fileText = File.ReadAllText(dataFileName);
+            var rows = fileText.Split(new[] {'\n', '\r'});
+            return rows.Length;
         }
     }
 }

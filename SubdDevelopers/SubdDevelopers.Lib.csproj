@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source\Common\AppGlobalSettings.cs" />
+    <Compile Include="source\Common\CommonDelegates.cs" />
     <Compile Include="source\Common\ILoadDevelopersList.cs" />
     <Compile Include="source\Common\Ioc.cs" />
     <Compile Include="source\Common\ISaveDevelopersList.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="source\mock\ListDevelopersLoadMock.cs" />
     <Compile Include="source\mock\ListDevelopersSaveMock.cs" />
     <Compile Include="source\Utility\AppConfigUtility.cs" />
+    <Compile Include="source\Utility\CalculationsUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kpo4162_nmv.Lib\Kpo4162_nmv.Lib.csproj">

@@ -10,6 +10,8 @@ namespace SubdDevelopers.source.mock
     {
         private List<Developer> _developers = null;
 
+        private ReportProgress _reportProgress = null;
+
         public List<Developer> DeveloperList
         {
             get => _developers;
@@ -26,6 +28,11 @@ namespace SubdDevelopers.source.mock
         public ListDevelopersSaveMock()
         {
             _developers = new List<Developer>();
+        }
+
+        public void SetProgressReporter(ReportProgress reportProgress)
+        {
+            _reportProgress = reportProgress;
         }
 
         public void Execute()
@@ -67,6 +74,8 @@ namespace SubdDevelopers.source.mock
             {
                 writer.Write(fileText);
             }
+
+            _reportProgress(100);
         }
     }
 }

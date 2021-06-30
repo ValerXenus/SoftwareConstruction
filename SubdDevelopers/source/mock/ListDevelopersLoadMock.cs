@@ -7,11 +7,18 @@ namespace SubdDevelopers.source.mock
     {
         private List<Developer> _developers = null;
 
+        private ReportProgress _reportProgress = null;
+
         public List<Developer> DeveloperList => _developers;
 
         public ListDevelopersLoadMock()
         {
             _developers = new List<Developer>();
+        }
+
+        public void SetProgressReporter(ReportProgress reportProgress)
+        {
+            _reportProgress = reportProgress;
         }
 
         public void Execute()
@@ -39,6 +46,8 @@ namespace SubdDevelopers.source.mock
                 Proceeds = 1048000000,
                 MarketPercentage = 13.1d
             });
+
+            _reportProgress(100);
         }
     }
 }

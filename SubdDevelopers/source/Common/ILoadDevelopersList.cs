@@ -9,6 +9,12 @@ namespace SubdDevelopers.source.Common
     {
         List<Developer> DeveloperList { get; }
 
+        /// <summary>
+        /// Установка делегата
+        /// </summary>
+        /// <param name="reportProgress"></param>
+        void SetProgressReporter(ReportProgress reportProgress);
+
         void Execute();
     }
 }
