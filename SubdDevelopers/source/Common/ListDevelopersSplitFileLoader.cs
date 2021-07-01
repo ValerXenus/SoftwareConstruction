@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Kpo4162_nmv.Lib;
 using SubdDevelopers.Common;
+using SubdDevelopers.source.Exceptions;
 using SubdDevelopers.source.Utility;
 
 namespace SubdDevelopers.source.Common
@@ -87,7 +89,16 @@ namespace SubdDevelopers.source.Common
         {
             var fileText = File.ReadAllText(dataFileName);
             var rows = fileText.Split(new[] {'\n', '\r'});
-            return rows.Length;
+
+            // Отбираем не пустые строки
+            var filteredRows = rows.Where(row => !string.IsNullOrEmpty(row)).ToList();
+
+#if DEBUG
+            if (filteredRows.Count == 0)
+                throw new EmptyFileException("Файл загрузки пуст!");
+#endif
+
+            return filteredRows.Count;
         }
     }
 }

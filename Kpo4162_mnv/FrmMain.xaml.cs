@@ -4,9 +4,11 @@ using System.Linq;
 using System.Windows;
 using Kpo4162_mnv.Main;
 using Kpo4162_nmv.Lib;
+using Kpo4162_nmv.Lib.source.Log;
 using SubdDevelopers.Common;
 using SubdDevelopers.source;
 using SubdDevelopers.source.Common;
+using SubdDevelopers.source.Exceptions;
 
 namespace Kpo4162_mnv
 {
@@ -40,17 +42,23 @@ namespace Kpo4162_mnv
                 _developerList = developers;
                 dvgMyClasses.ItemsSource = _developerList;
             }
-            //обработка исключения "Метод не реализован"
-            catch (NotImplementedException ex)
+            // обработка исключения "Метод не реализован"
+            catch (NotImplementedException exception)
             {
-                LogUtility.ErrorLog(ex);
-                MessageBox.Show("Ошибка №1: " + ex.Message);
+                LogUtility.ErrorLog(exception);
+                MessageBox.Show("Ошибка №1: " + exception.Message);
             }
-            //обработка остальных исключений
-            catch (Exception ex)
+            // обработка исключения с пустым файлом
+            catch (EmptyFileException exception)
             {
-                LogUtility.ErrorLog(ex);
-                MessageBox.Show("Ошибка №2: " + ex.Message);
+                ErrorLogger.LogError(exception.Message);
+                MessageBox.Show("Ошибка №3: " + exception.Message);
+            }
+            // обработка остальных исключений
+            catch (Exception exception)
+            {
+                LogUtility.ErrorLog(exception);
+                MessageBox.Show("Ошибка №2: " + exception.Message);
             }
         }
 

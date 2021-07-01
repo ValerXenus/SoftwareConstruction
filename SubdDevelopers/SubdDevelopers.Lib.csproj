@@ -61,6 +61,7 @@
     <Compile Include="source\Common\LoadStatus.cs" />
     <Compile Include="source\Common\SerializerXmlClient.cs" />
     <Compile Include="source\Developer.cs" />
+    <Compile Include="source\Exceptions\EmptyFileException.cs" />
     <Compile Include="source\mock\ListDevelopersLoadMock.cs" />
     <Compile Include="source\mock\ListDevelopersSaveMock.cs" />
     <Compile Include="source\Utility\AppConfigUtility.cs" />
@@ -75,5 +76,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
