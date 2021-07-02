@@ -52,6 +52,18 @@
                     x:Name="mnOpenDeveloper"
                     Click="MnOpenDeveloper_OnClick"/>
             </MenuItem>
+            <MenuItem 
+                Header="Новое чтение"
+                x:Name="mmNewRead">
+                <MenuItem 
+                    Header="Обычное"
+                    x:Name="mnNewReadSimple"
+                    Click="MnNewReadSimple_OnClick"/>
+                <MenuItem 
+                    Header="Модифицированное"
+                    x:Name="mnNewReadModified"
+                    Click="MnNewReadModified_OnClick"/>
+            </MenuItem>
         </Menu>
         
         <DataGrid

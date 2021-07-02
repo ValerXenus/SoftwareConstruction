@@ -32,6 +32,19 @@ namespace SubdDevelopers.source.Common
                 .Named("testLoader"));
 
             _container.Register(Component
+                .For<ILoadDevelopersList>()
+                .ImplementedBy<ListDevelopersFileLoaderNew>()
+                .DependsOn(Dependency.OnValue("dataFileName", AppGlobalSettings.NewDataFileName))
+                .LifeStyle.Transient
+                .Named("prodLoaderNew"));
+            _container.Register(Component
+                .For<ILoadDevelopersList>()
+                .ImplementedBy<ListDevelopersFileLoaderModified>()
+                .DependsOn(Dependency.OnValue("dataFileName", AppGlobalSettings.NewDataFileName))
+                .LifeStyle.Transient
+                .Named("prodLoaderModified"));
+
+            _container.Register(Component
                 .For<ISaveDevelopersList>()
                 .ImplementedBy<ListDevelopersSplitFileSaver>()
                 .DependsOn(Dependency.OnValue("filePath", AppGlobalSettings.DataFileName))

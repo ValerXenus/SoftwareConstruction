@@ -53,9 +53,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source\Common\AppGlobalSettings.cs" />
     <Compile Include="source\Common\CommonDelegates.cs" />
+    <Compile Include="source\Common\DataRow.cs" />
+    <Compile Include="source\Common\IDataRow.cs" />
     <Compile Include="source\Common\ILoadDevelopersList.cs" />
     <Compile Include="source\Common\IoС.cs" />
     <Compile Include="source\Common\ISaveDevelopersList.cs" />
+    <Compile Include="source\Common\ListDevelopersFileLoaderModified.cs" />
+    <Compile Include="source\Common\ListDevelopersFileLoaderNew.cs" />
     <Compile Include="source\Common\ListDevelopersSplitFileLoader.cs" />
     <Compile Include="source\Common\ListDevelopersSplitFileSaver.cs" />
     <Compile Include="source\Common\LoadStatus.cs" />

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Xml;
 using Kpo4162_mnv.Main;
 using Kpo4162_nmv.Lib;
 using Kpo4162_nmv.Lib.source.Log;
@@ -100,6 +102,80 @@ namespace Kpo4162_mnv
         private void reportProgress(int progressValue)
         {
             ProcessProgress.Value = progressValue;
+        }
+
+        /// <summary>
+        /// Обработчик "Новое чтение - Обычное"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MnNewReadSimple_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ILoadDevelopersList developersLoader = IoС.Container.Resolve<ILoadDevelopersList>("prodLoaderNew");
+                developersLoader.SetProgressReporter(reportProgress);
+                developersLoader.Execute();
+                var developers = developersLoader.DeveloperList;
+
+                _developerList = developers;
+                dvgMyClasses.ItemsSource = _developerList;
+            }
+            // обработка исключения если файл не найден
+            catch (FileNotFoundException exception)
+            {
+                ErrorLogger.LogError(exception.Message);
+                MessageBox.Show("Ошибка №4: " + exception.Message);
+            }
+            // обработка исключения связанного с XML-файлом
+            catch (XmlException exception)
+            {
+                ErrorLogger.LogError(exception.Message);
+                MessageBox.Show("Ошибка №5: " + exception.Message);
+            }
+            // обработка остальных исключений
+            catch (Exception exception)
+            {
+                LogUtility.ErrorLog(exception);
+                MessageBox.Show("Ошибка №2: " + exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Обработчик "Новое чтение - Модифицированное"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MnNewReadModified_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ILoadDevelopersList developersLoader = IoС.Container.Resolve<ILoadDevelopersList>("prodLoaderModified");
+                developersLoader.SetProgressReporter(reportProgress);
+                developersLoader.Execute();
+                var developers = developersLoader.DeveloperList;
+
+                _developerList = developers;
+                dvgMyClasses.ItemsSource = _developerList;
+            }
+            // обработка исключения если файл не найден
+            catch (FileNotFoundException exception)
+            {
+                ErrorLogger.LogError(exception.Message);
+                MessageBox.Show("Ошибка №4: " + exception.Message);
+            }
+            // обработка исключения связанного с XML-файлом
+            catch (XmlException exception)
+            {
+                ErrorLogger.LogError(exception.Message);
+                MessageBox.Show("Ошибка №5: " + exception.Message);
+            }
+            // обработка остальных исключений
+            catch (Exception exception)
+            {
+                LogUtility.ErrorLog(exception);
+                MessageBox.Show("Ошибка №2: " + exception.Message);
+            }
         }
     }
 }
